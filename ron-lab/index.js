@@ -4,7 +4,7 @@ let express = require('express')
 let mongoose  = require('mongoose')
 let jsonParser = require('body-parser').jsonParser
 
-let MONGO_URI = process.env.MONGO_URI || ''
+let MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost/dogs'
 let PORT = process.env.PORT || 3000
 mongoose.Promise = Promise
 mongoose.connect(MONGO_URI)
