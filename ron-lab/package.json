@@ -18,5 +18,8 @@
     "gulp": "^3.9.1",
     "mocha": "^3.2.0",
     "mongoose": "^4.7.5"
+  },
+  "dependencies": {
+    "morgan": "^1.7.0"
   }
 }
