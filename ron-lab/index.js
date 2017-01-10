@@ -1,5 +1,5 @@
 'use strict'
-
+//I am able to create chewtoys, though the object is empty, but not POST, PUT etc.
 let express = require('express')
 let mongoose  = require('mongoose')
 let jsonParser = require('body-parser').json()
