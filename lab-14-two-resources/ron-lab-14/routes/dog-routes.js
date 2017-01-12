@@ -25,7 +25,6 @@ router.put('/dogs/:id', (req, res, next) =>{
   .catch(next)
 })
 
-
 router.delete('/dogs/:id', (req, res, next) =>{
   console.log('deleted file ')
   Dog.findByIdAndRemove(req.params.id)

@@ -6,20 +6,21 @@ let Dog = require('../models/dog.js')
 let ChewToy = require('../models/chew-toy.js')
 let router = module.exports = new Router()
 
-router.post('/dog/:id/chewtoy', jsonParser, (req, res, next) => {
-  console.log('in post')
+router.post('/dogs/:id/chewtoy', jsonParser, (req, res, next) => {
   let newChewToy;
-  new ChewToy(req.body).save()
-  .then(chewToy => {
-    newChewToy = chewToy
-    return Dog.findById(req.params.id)
-  })
+  Dog.findById(req.params.id)
   .then(dog => {
-    dog.chewToy.push(newChewToy.id)
-    return dog.save()
+    new ChewToy(req.body).save()
+
+  .then(chewToy => {
+    console.log(chewToy);
+    dog.chewToy.push(chewToy)
+    newChewToy = chewToy;
+    dog.save()
   })
-  .then(newChewToy => res.send(newChewToy))
+  .then(() => res.json(newChewToy))
   .catch(next)
+  })
 })
 
 router.get('/chewtoy/:id', (req, res, next) => {
